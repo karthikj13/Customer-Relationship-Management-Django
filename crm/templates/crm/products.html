@@ -1,0 +1,35 @@
+{% extends 'crm/base.html' %}
+
+{% block content %}
+
+    <br>
+
+    <div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                <h5>Products</h5>
+            </div>
+            <div class="card card-body">
+                <table class="table">
+                    <tr>
+                        <th>Product</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                    </tr>
+                    {% for prod in product %}
+                        <tr>
+                            <td>{{ prod.name }}</td>
+                            <td>{{ prod.category }}</td>
+                            <td>{{ prod.price }}</td>
+                        </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+        </div>       
+    </div>
+    <div style="text-align: center; font-weight: bolder;">
+    {% include "crm/pagination.html" with page=product %}
+    </div>
+
+{% endblock %}
